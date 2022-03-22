@@ -15,7 +15,8 @@ limits the use case of WirePact.
 This application serves as "login" point for demo applications that use OIDC.
 It is a custom web app with the [node-oidc-provider](https://github.com/panva/node-oidc-provider)
 package to deliver OIDC login capabilities. This serves as an alternative to ["Keycloak"](https://www.keycloak.org/)
-which tends to have longer startup times for development.
+or other OIDC provider pre-built software, which tend to
+have longer startup times for development.
 
 [OIDC Provider](./oidc_provider)
 
