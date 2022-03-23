@@ -26,14 +26,20 @@ const oidc = new Provider(issuer(), {
     validator() {},
   },
   pkce: {
-    required: (_, { clientId }) => clientId === 'wire-pact-pkce',
+    required: (_: any, { clientId }: any) => clientId === 'wire-pact-pkce',
     methods: ['S256'],
+  },
+  features: {
+    introspection: {
+      enabled: true,
+    },
+    userinfo: {
+      enabled: true,
+    },
   },
 });
 
 // Allow all redirect uris.
 oidc.Client.prototype.redirectUriAllowed = () => true;
-
 oidc.proxy = hasProxy();
-
 oidc.listen(port(), () => console.log(`OIDC provider listening on port ${port()}.`));

@@ -3,9 +3,11 @@
   "version": "0.0.0-development",
   "private": true,
   "description": "OIDC Provider Application for WirePact",
-  "main": "index.js",
+  "main": "build/server.js",
   "scripts": {
-    "dev": "ts-node src/server.ts"
+    "dev": "ts-node src/server.ts",
+    "build": "rm -rf ./build && tsc -p .",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
