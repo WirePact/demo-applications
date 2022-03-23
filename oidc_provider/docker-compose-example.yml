@@ -3,7 +3,7 @@ services:
   oidc-provider:
     image: ghcr.io/wirepact/demo-applications/oidc-provider:latest
     environment:
-      - ISSUER=http://localhost:3000
-      - PORT=3000
+      - ISSUER=http://localhost:3001
+      - PORT=3001
     ports:
-      - 3000:3000
+      - 3001:3001

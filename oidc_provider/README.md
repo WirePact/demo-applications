@@ -20,6 +20,27 @@ The provider may be configured via three environment variables:
   feature.
 - `PORT`: The port that the provider runs on.
 
+There are two OIDC clients configured, which both
+use the authorization code flow.
+
+One with PKCE disabled, so you actually
+need the client secret.
+
+```javascript
+const client = {
+  client_id: 'wire-pact',
+  client_secret: 'demo-oidc-provider',
+};
+```
+
+One with PKCE enabled.
+
+```javascript
+const client = {
+  client_id: 'wire-pact-pkce',
+};
+```
+
 ## Deployment
 
 To use the OIDC provider, you may:
