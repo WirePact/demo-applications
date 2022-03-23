@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  oidc-provider:
+    image: ghcr.io/wirepact/demo-applications/oidc-api:latest
+    environment:
+      - OIDC__ISSUER="Your Issuer"
+      - OIDC__CLIENTID="The Client Id"
+      - OIDC__CLIENTSECRET="The Client Secret"
+      - ASPNETCORE_URLS=http://0.0.0.0:5000
+    ports:
+      - 5000:5000

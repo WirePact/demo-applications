@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  oidc-provider:
+    build:
+      context: ./oidc_provider
+    environment:
+      - ISSUER=http://host.docker.internal:3001
+      - PORT=3001
+    ports:
+      - 3001:3001
+
+  oidc-app:
+    build:
+      context: ./oidc_app
+    environment:
+      - OIDC_ISSUER=http://host.docker.internal:3001/
+      - OIDC_CLIENT_ID=wire-pact
+      - OIDC_CLIENT_SECRET=demo-oidc-provider
+    networks:
+      - app-net
+    ports:
+      - 3000:3000
+
+  oidc-api:
+    build:
+      context: ./oidc_api
+    environment:
+      - OIDC__ISSUER=http://host.docker.internal:3001/
+      - OIDC__CLIENTID=wire-pact
+      - OIDC__CLIENTSECRET=demo-oidc-provider
+    networks:
+      - app-net
+    ports:
+      - 5000:5000
+
+networks:
+  app-net:
+    driver: bridge
