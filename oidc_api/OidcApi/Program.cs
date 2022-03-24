@@ -9,6 +9,13 @@ builder.Services
         o.Authority = section.GetValue<string>("Issuer");
         o.ClientId = section.GetValue<string>("ClientId");
         o.ClientSecret = section.GetValue<string>("ClientSecret");
+        o.DiscoveryPolicy = new()
+        {
+            RequireHttps = false,
+            ValidateEndpoints = false,
+            ValidateIssuerName = false,
+            RequireKeySet = false,
+        };
     });
 
 var app = builder.Build();

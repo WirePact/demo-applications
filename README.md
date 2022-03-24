@@ -47,3 +47,14 @@ one endpoint (`/swapi/people`) that returns the first ten people from the
 [Star Wars API](https://swapi.dev/).
 
 [OIDC API](./oidc_api/)
+
+## Run All Applications
+
+If you want to try the applications, you may use the provided
+[docker-compose.yml](./docker-compose.yml) file to build and start
+the applications. Be aware that on
+[Docker for Mac](https://docs.docker.com/desktop/mac/)
+and [Docker for Windows](https://docs.docker.com/desktop/windows/)
+you eventually are required to change the `localhost` references
+to `host.docker.internal` because of the way the port forwarding
+works. Or vice versa.
