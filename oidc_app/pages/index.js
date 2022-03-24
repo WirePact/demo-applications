@@ -1,10 +1,12 @@
 import { useSession } from 'next-auth/react';
+import getConfig from 'next/config';
 import { useState } from 'react';
 
 const apiUrl = '/api/call';
 
-export default function Home() {
-  const [url, setUrl] = useState(process.env.NEXT_PUBLIC_API_URL);
+const Home = () => {
+  const { publicRuntimeConfig } = getConfig();
+  const [url, setUrl] = useState(publicRuntimeConfig.API_URL);
   const [response, setResponse] = useState('');
   const [callErr, setCallErr] = useState(null);
   const { data: session } = useSession();
@@ -41,7 +43,8 @@ export default function Home() {
       <h1 className="text-xl font-bold mb-8">Hello there and welcome to the OIDC demo app.</h1>
       <p className="mb-8">
         Here you can set the API url that you want to call. On submit, the application will call the API with the current{' '}
-        <code>access token</code> that is saved in the user session.
+        <code>access token</code> that is saved in the user session. It should be prefilled with the value of the{' '}
+        <code>API_URL</code> environment variable.
       </p>
       <div className="text-center mb-16">
         <div className="inline-block w-1/2 border border-blue-200 rounded p-4 text-center">
@@ -79,4 +82,8 @@ export default function Home() {
       )}
     </>
   );
-}
+};
+
+Home.getInitialProps = () => ({});
+
+export default Home;

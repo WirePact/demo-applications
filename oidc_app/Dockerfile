@@ -13,7 +13,8 @@ COPY ./styles ./styles
 
 ENV OIDC_ISSUER="" \
     OIDC_CLIENT_ID="" \
-    OIDC_CLIENT_SECRET=""
+    OIDC_CLIENT_SECRET="" \
+    API_URL=""
 
 RUN npm run build
 

@@ -16,6 +16,7 @@ services:
       - OIDC_ISSUER=http://host.docker.internal:3001/
       - OIDC_CLIENT_ID=wire-pact
       - OIDC_CLIENT_SECRET=demo-oidc-provider
+      - API_URL=http://oidc-api:5000/swapi/people
     networks:
       - app-net
     ports:
