@@ -41,7 +41,7 @@ web application.
 ### API with OIDC
 
 The "OIDC API" is a dotnet (.net6.0) application that uses
-OIDC (more specifically OAuth2.0Introspection) authentication
+OIDC (more specifically [OAuth2.0Introspection](https://github.com/IdentityModel/IdentityModel.AspNetCore.OAuth2Introspection)) authentication
 to check if a user may or may not access the API. The API has
 one endpoint (`/swapi/people`) that returns the first ten people from the
 [Star Wars API](https://swapi.dev/).

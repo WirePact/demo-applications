@@ -6,5 +6,6 @@ services:
       - OIDC_ISSUER="Your Issuer"
       - OIDC_CLIENT_ID="The Client Id"
       - OIDC_CLIENT_SECRET="The Client Secret"
+      - API_URL="the api url"
     ports:
       - 3000:3000
