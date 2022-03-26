@@ -20,6 +20,8 @@ jobs:
           - context: ./oidc_provider
             image: oidc-provider
 
+    name: Build ${{ matrix.image }} Docker image
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
