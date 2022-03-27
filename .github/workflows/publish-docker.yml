@@ -19,6 +19,8 @@ jobs:
             image: oidc-app
           - context: ./oidc_provider
             image: oidc-provider
+          - context: ./basic_auth_api
+            image: basic-auth-api
 
     name: Build ${{ matrix.image }} Docker image
 

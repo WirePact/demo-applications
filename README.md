@@ -30,10 +30,6 @@ Once you are logged in, you can enter an API url that the app shall
 send an HTTP GET request to. The result is then displayed in the
 web application.
 
-### [App with Basic Auth](./basic_auth_app/)
-
-TODO
-
 ### [API with OIDC](./oidc_api/)
 
 The "OIDC API" is a dotnet (.net6.0) application that uses
@@ -42,6 +38,10 @@ OIDC (more specifically
 to check if a user may or may not access the API. The API has
 one endpoint (`/swapi/people`) that returns the first ten people from the
 [Star Wars API](https://swapi.dev/).
+
+### [App with Basic Auth](./basic_auth_app/)
+
+TODO
 
 ### [API with Basic Auth](./basic_auth_api/)
 
