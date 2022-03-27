@@ -1,0 +1,23 @@
+name: Test Basic Auth API
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+
+      - name: Install dependencies
+        run: go mod download && go mod verify
+        working-directory: baisc_auth_api
+
+      - name: Build API
+        run: go build
+        working-directory: baisc_auth_api
