@@ -13,11 +13,13 @@ jobs:
 
       - name: Setup Go
         uses: actions/setup-go@v2
+        with:
+          go-version: '1.17.7'
 
       - name: Install dependencies
         run: go mod download && go mod verify
-        working-directory: baisc_auth_api
+        working-directory: basic_auth_api
 
       - name: Build API
         run: go build
-        working-directory: baisc_auth_api
+        working-directory: basic_auth_api
