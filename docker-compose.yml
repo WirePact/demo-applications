@@ -34,6 +34,18 @@ services:
     ports:
       - 5000:5000
 
+  basic-auth-api:
+    build:
+      context: ./basic_auth_api
+    environment:
+      - PORT=6000
+      - AUTH_USERNAME=api
+      - AUTH_PASSWORD=supersecret
+    networks:
+      - app-net
+    ports:
+      - 6000:6000
+
 networks:
   app-net:
     driver: bridge

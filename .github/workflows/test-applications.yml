@@ -1,0 +1,83 @@
+name: Test Demo Applications
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  test-oidc-provider:
+    name: Test OIDC Provider
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: oidc_provider
+
+      - name: Build Provider
+        run: npm run build
+        working-directory: oidc_provider
+
+  test-oidc-app:
+    name: Test OIDC App
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: oidc_app
+
+      - name: Linting
+        run: npm run lint
+        working-directory: oidc_app
+
+      - name: Build App
+        run: npm run build
+        working-directory: oidc_app
+
+  test-oidc-api:
+    name: Test OIDC API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.101
+
+      - name: Build API
+        run: dotnet build --configuration Release
+        working-directory: oidc_api
+
+  test-basic-auth-api:
+    name: Test Basic Auth API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.17.7'
+
+      - name: Install dependencies
+        run: go mod download && go mod verify
+        working-directory: basic_auth_api
+
+      - name: Build API
+        run: go build
+        working-directory: basic_auth_api
