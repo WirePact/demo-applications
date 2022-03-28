@@ -10,7 +10,7 @@ limits the use case of WirePact.
 
 ## Flavors/Applications
 
-### [OIDC Provider](./oidc_provider)
+### [OIDC Provider](./oidc_provider/)
 
 This application serves as "login" point for demo applications that use OIDC.
 It is a custom web app with the [node-oidc-provider](https://github.com/panva/node-oidc-provider)
@@ -41,7 +41,9 @@ one endpoint (`/swapi/people`) that returns the first ten people from the
 
 ### [App with Basic Auth](./basic_auth_app/)
 
-TODO
+Trivial HTML/JavaScript application that uses HTTP Basic Authentication
+([RFC7617](https://tools.ietf.org/html/rfc7617))
+to authenticate against a given API. Served via NGINX.
 
 ### [API with Basic Auth](./basic_auth_api/)
 

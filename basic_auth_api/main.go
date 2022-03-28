@@ -20,6 +20,7 @@ func main() {
 		config.Username: config.Password,
 	}))
 	secure.GET("swapi/people", getPeopleFromSwapi)
+	router.OPTIONS("/swapi/people", cors)
 
 	err := router.Run(fmt.Sprintf(":%v", port))
 	if err != nil {
@@ -29,7 +30,16 @@ func main() {
 
 const swapiUrl = "https://swapi.dev/api/people"
 
+func cors(context *gin.Context) {
+	context.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+	context.Writer.Header().Set("Access-Control-Allow-Methods", "*")
+	context.Writer.Header().Set("Access-Control-Allow-Headers", "*")
+	context.Writer.Header().Set("Access-Control-Max-Age", "3600")
+	context.Status(http.StatusNoContent)
+}
+
 func getPeopleFromSwapi(context *gin.Context) {
+	context.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 	request, _ := http.NewRequest("GET", swapiUrl, nil)
 	client := &http.Client{}
 	response, err := client.Do(request)

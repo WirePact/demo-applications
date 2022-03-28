@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  oidc-provider:
+    image: ghcr.io/wirepact/demo-applications/basic-auth-app:latest
+    environment:
+      - PORT=8080
+      - API_URL=http://foobar
+      - AUTH_USER=user
+      - AUTH_PASS=pass
+    ports:
+      - 8080:8080
