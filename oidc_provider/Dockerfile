@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM node:17-alpine as build
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN npm ci
 COPY ./src ./src
 RUN npm run build
 
-FROM node:16-alpine
+FROM node:17-alpine
 
 ARG COMMIT_SHA=none
 LABEL org.opencontainers.image.authors="Christoph Bühler <cbuehler@rootd.ch>" \
