@@ -1,5 +1,5 @@
 ### Build
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:latest AS build
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY . ./
 RUN dotnet publish OidcApi --configuration Release --output ./out
 
 ### Deploy
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:latest AS final
 
 ARG COMMIT_SHA=none
 LABEL org.opencontainers.image.authors="Christoph Bühler <cbuehler@rootd.ch>" \

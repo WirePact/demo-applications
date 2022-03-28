@@ -38,13 +38,26 @@ services:
     build:
       context: ./basic_auth_api
     environment:
-      - PORT=6000
+      - PORT=8000
       - AUTH_USERNAME=api
       - AUTH_PASSWORD=supersecret
     networks:
       - app-net
     ports:
-      - 6000:6000
+      - 8000:8000
+
+  basic-auth-app:
+    build:
+      context: ./basic_auth_app
+    environment:
+      - PORT=8080
+      - AUTH_USER=api
+      - AUTH_PASS=supersecret
+      - API_URL=http://host.docker.internal:8000/swapi/people
+    networks:
+      - app-net
+    ports:
+      - 8080:8080
 
 networks:
   app-net:
