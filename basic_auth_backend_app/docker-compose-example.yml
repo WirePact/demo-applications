@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  oidc-provider:
+    image: ghcr.io/wirepact/demo-applications/basic-auth-backend-app:latest
+    environment:
+      - PORT=5050
+      - AUTH_USER=myuser
+      - AUTH_PASS=secret
+      - API_URL=http://foobar.com
+    ports:
+      - 5050:5050

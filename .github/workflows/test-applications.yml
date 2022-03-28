@@ -81,3 +81,18 @@ jobs:
       - name: Build API
         run: go build
         working-directory: basic_auth_api
+
+  test-basic-auth-backend-app:
+    name: Test Basic Auth Backend App
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.201
+
+      - name: Build App
+        run: dotnet build --configuration Release
+        working-directory: basic_auth_backend_app
