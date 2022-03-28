@@ -1,0 +1,48 @@
+﻿@page
+@model BasicAuthApp.Pages.Index
+
+<h1 class="text-xl font-bold mb-8">Hello there and welcome to the Basic Auth demo app.</h1>
+<p class="mb-8">
+    Here you can set the API url that you want to call. On submit, the application will call the url with the provided
+    <a href="https://tools.ietf.org/html/rfc7617">Basic Auth (RFC7617)</a> credentials. The form should be prefilled with
+    the credentials from the environment variables.
+</p>
+<div class="text-center mb-16">
+    <div class="inline-block w-1/2 border border-blue-200 rounded p-4 text-center">
+        <form method="post">
+            <input
+                class="mb-4 rounded w-full px-4 py-2 bg-blue-100 border-b border-b-blue-500"
+                placeholder="Basic Auth Username (e.g. john.doe)"
+                value="@Model.Username"
+                asp-for="ApiCall.Username"/>
+            <input
+                class="mb-4 rounded w-full px-4 py-2 bg-blue-100 border-b border-b-blue-500"
+                placeholder="Basic Auth Password (e.g. my-secret-password)"
+                value="@Model.Password"
+                asp-for="ApiCall.Password"/>
+            <input
+                class="mb-4 rounded w-full px-4 py-2 bg-blue-100 border-b border-b-blue-500"
+                placeholder="API Url (e.g.
+                      http://localhost:3000/api)"
+                value="@Model.ApiUrl"
+                asp-for="ApiCall.ApiUrl"/>
+            <button class="rounded px-4 py-2 bg-blue-300 hover:bg-blue-500 transition-colors">Send Request</button>
+        </form>
+    </div>
+</div>
+@if (TempData.Peek("Result") != null)
+{
+    <div class="text-center mb-16">
+        <div class="w-2/3 p-4 text-left border border-green-500 inline-block rounded">
+            <code class="whitespace-pre">@Model.Result</code>
+        </div>
+    </div>
+}
+@if (TempData.Peek("Error") != null)
+{
+    <div class="text-center mb-16">
+        <div class="w-2/3 p-4 text-left border border-red-500 inline-block rounded">
+            <code class="whitespace-pre">@Model.Error</code>
+        </div>
+    </div>
+}

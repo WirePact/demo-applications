@@ -23,6 +23,8 @@ jobs:
             image: basic-auth-api
           - context: ./basic_auth_app
             image: basic-auth-app
+          - context: ./basic_auth_backend_app
+            image: basic-auth-backend-app
 
     name: Build ${{ matrix.image }} Docker image
 

@@ -45,6 +45,14 @@ Trivial HTML/JavaScript application that uses HTTP Basic Authentication
 ([RFC7617](https://tools.ietf.org/html/rfc7617))
 to authenticate against a given API. Served via NGINX.
 
+### [Backend App with Basic Auth](./basic_auth_backend_app/)
+
+.NET Razor Pages application that uses HTTP Basic Authentication
+([RFC7617](https://tools.ietf.org/html/rfc7617))
+to authenticate against a given API. The application utilizes
+post-back forms to execute the basic auth request to the API.
+This enables the app to use the HTTP_PROXY environment variable.
+
 ### [API with Basic Auth](./basic_auth_api/)
 
 This API uses simple Basic Auth ([RFC7617](https://tools.ietf.org/html/rfc7617))

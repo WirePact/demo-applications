@@ -16,11 +16,10 @@ can validate `JWT` tokens out of the box but do not support introspection.
 
 To configure the API, you can use the following environment variables (**note** the double underscores `_` which is the default delimiter for objects in dotnet environment variables):
 
+- `PORT`: The port that the API runs on (Default `5000`).
 - `OIDC__ISSUER`: Configure the issuer (most likely the host url of the [OIDC provider](../oidc_provider/)).
 - `OIDC__CLIENTID`: The client id for OIDC authentication.
 - `OIDC__CLIENTSECRET`: Client secret for OIDC authentication.
-- `ASPNETCORE_URLS`: The url on which the API shall run.
-  This must include the port and defaults to `http://0.0.0.0:5000`.
 
 ## Deployment
 

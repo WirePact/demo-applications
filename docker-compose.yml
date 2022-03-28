@@ -26,6 +26,7 @@ services:
     build:
       context: ./oidc_api
     environment:
+      - PORT=5000
       - OIDC__ISSUER=http://host.docker.internal:3001/
       - OIDC__CLIENTID=wire-pact
       - OIDC__CLIENTSECRET=demo-oidc-provider
@@ -58,6 +59,19 @@ services:
       - app-net
     ports:
       - 8080:8080
+
+  basic-auth-backend-app:
+    build:
+      context: ./basic_auth_backend_app
+    environment:
+      - PORT=8090
+      - AUTH_USER=api
+      - AUTH_PASS=supersecret
+      - API_URL=http://host.docker.internal:8000/swapi/people
+    networks:
+      - app-net
+    ports:
+      - 8090:8090
 
 networks:
   app-net:
