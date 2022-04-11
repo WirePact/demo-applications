@@ -1,5 +1,6 @@
 import { Provider } from 'oidc-provider';
 import { hasProxy, issuer, port } from './config';
+import { allowedDuplicateParameters, grantType, parameters, tokenExchangeHandler } from './tokenExchange';
 
 const oidc = new Provider(issuer(), {
   clients: [
@@ -8,7 +9,7 @@ const oidc = new Provider(issuer(), {
       client_secret: 'demo-oidc-provider',
       redirect_uris: ['https://localhost'],
       response_types: ['code'],
-      grant_types: ['authorization_code'],
+      grant_types: ['authorization_code', grantType],
       token_endpoint_auth_method: 'client_secret_basic',
     },
     {
@@ -16,7 +17,7 @@ const oidc = new Provider(issuer(), {
       client_secret: 'demo-oidc-provider',
       redirect_uris: ['https://localhost'],
       response_types: ['code'],
-      grant_types: ['authorization_code'],
+      grant_types: ['authorization_code', grantType],
       token_endpoint_auth_method: 'none',
     },
   ],
@@ -38,6 +39,8 @@ const oidc = new Provider(issuer(), {
     },
   },
 });
+
+oidc.registerGrantType(grantType, tokenExchangeHandler, parameters, allowedDuplicateParameters);
 
 // Allow all redirect uris.
 oidc.Client.prototype.redirectUriAllowed = () => true;
