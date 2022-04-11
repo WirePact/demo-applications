@@ -20,6 +20,8 @@ The provider may be configured via three environment variables:
   feature.
 - `PORT`: The port that the provider runs on.
 
+### OIDC Clients
+
 There are two OIDC clients configured, which both
 use the authorization code flow.
 

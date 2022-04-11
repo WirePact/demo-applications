@@ -24,6 +24,7 @@ The application can be configured with the following environment variables:
   This is required because NextAuth is not yet able to use
   `pkce` correctly.
 - `API_URL`: The url that is pre-filled in the form field.
+- `NEXTAUTH_URL`: Url where the app is available when it is behind a proxy.
 
 ## Deployment
 

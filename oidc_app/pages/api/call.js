@@ -1,3 +1,4 @@
+import { HttpProxyAgent } from 'http-proxy-agent';
 import { getSession } from 'next-auth/react';
 
 export default async function handler(req, res) {
@@ -18,11 +19,19 @@ export default async function handler(req, res) {
     return;
   }
 
-  const apiResult = await fetch(url, {
+  const options = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
-  });
+  };
+
+  if (process.env.HTTP_PROXY) {
+    options.agent = new HttpProxyAgent(process.env.HTTP_PROXY);
+  }
+
+  console.log(`Sending request to ${url} with HTTP_Proxy ${process.env.HTTP_PROXY}.`);
+
+  const apiResult = await fetch(url, options);
 
   if (apiResult.status >= 300) {
     res.status(400).json({ status: apiResult.status, text: apiResult.statusText });
