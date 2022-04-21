@@ -14,12 +14,12 @@
   "license": "Apache License 2.0",
   "devDependencies": {
     "@types/node": "17.0.21",
-    "@types/oidc-provider": "7.8.2",
+    "@types/oidc-provider": "7.11.0",
     "ts-node": "10.7.0",
     "tslib": "2.3.1",
     "typescript": "4.6.3"
   },
   "dependencies": {
-    "oidc-provider": "7.10.6"
+    "oidc-provider": "7.11.0"
   }
 }
