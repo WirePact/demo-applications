@@ -30,8 +30,8 @@ need the client secret.
 
 ```javascript
 const client = {
-  client_id: 'wire-pact',
-  client_secret: 'demo-oidc-provider',
+  client_id: 'wirepact',
+  client_secret: 'secret',
 };
 ```
 
@@ -39,7 +39,7 @@ One with PKCE enabled.
 
 ```javascript
 const client = {
-  client_id: 'wire-pact-pkce',
+  client_id: 'wirepact-pkce',
 };
 ```
 

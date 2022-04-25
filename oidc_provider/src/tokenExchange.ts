@@ -38,7 +38,7 @@ export async function tokenExchangeHandler(ctx: KoaContextWithOIDC, next: () => 
   const at = new ctx.oidc.provider.AccessToken({
     accountId: targetId as string,
     client: ctx.oidc.client!,
-    scope: 'api',
+    scope: 'openid',
     grantId,
     gty: 'token_exchange',
   });

@@ -5,19 +5,19 @@ import { allowedDuplicateParameters, grantType, parameters, tokenExchangeHandler
 const oidc = new Provider(issuer(), {
   clients: [
     {
-      client_id: 'wire-pact',
-      client_secret: 'demo-oidc-provider',
+      client_id: 'wirepact',
+      client_secret: 'secret',
       redirect_uris: ['https://localhost'],
       response_types: ['code'],
-      grant_types: ['authorization_code', grantType],
+      grant_types: ['authorization_code', 'client_credentials', grantType],
       token_endpoint_auth_method: 'client_secret_basic',
     },
     {
-      client_id: 'wire-pact-pkce',
-      client_secret: 'demo-oidc-provider',
+      client_id: 'wirepact-pkce',
+      client_secret: 'secret',
       redirect_uris: ['https://localhost'],
       response_types: ['code'],
-      grant_types: ['authorization_code', grantType],
+      grant_types: ['authorization_code', 'client_credentials', grantType],
       token_endpoint_auth_method: 'none',
     },
   ],
@@ -27,7 +27,7 @@ const oidc = new Provider(issuer(), {
     validator() {},
   },
   pkce: {
-    required: (_: any, { clientId }: any) => clientId === 'wire-pact-pkce',
+    required: (_: any, { clientId }: any) => clientId === 'wirepact-pkce',
     methods: ['S256'],
   },
   features: {
@@ -35,6 +35,9 @@ const oidc = new Provider(issuer(), {
       enabled: true,
     },
     userinfo: {
+      enabled: true,
+    },
+    clientCredentials: {
       enabled: true,
     },
   },
