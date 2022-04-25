@@ -26,10 +26,11 @@ export default async function handler(req, res) {
   };
 
   if (process.env.HTTP_PROXY) {
+    console.log(`Set HTTP_Proxy "${process.env.HTTP_PROXY}".`);
     options.agent = new HttpProxyAgent(process.env.HTTP_PROXY);
   }
 
-  console.log(`Sending request to ${url} with HTTP_Proxy ${process.env.HTTP_PROXY}.`);
+  console.log(`Sending request to ${url}.`);
 
   const apiResult = await fetch(url, options);
 
