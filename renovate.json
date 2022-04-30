@@ -2,5 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>WirePact/renovate-config"
-  ]
+  ],
+  "ignorePaths": ["oidc_app/Dockerfile"]
 }
