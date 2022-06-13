@@ -20,6 +20,6 @@
     "typescript": "4.7.3"
   },
   "dependencies": {
-    "oidc-provider": "7.11.2"
+    "oidc-provider": "7.11.3"
   }
 }
