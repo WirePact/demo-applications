@@ -15,7 +15,7 @@
   "devDependencies": {
     "@types/node": "17.0.21",
     "@types/oidc-provider": "7.11.1",
-    "ts-node": "10.8.1",
+    "ts-node": "10.8.2",
     "tslib": "2.4.0",
     "typescript": "4.7.4"
   },
