@@ -13,7 +13,7 @@
   "author": "",
   "license": "Apache License 2.0",
   "devDependencies": {
-    "@types/node": "18.11.15",
+    "@types/node": "18.11.16",
     "@types/oidc-provider": "7.14.0",
     "ts-node": "10.9.1",
     "tslib": "2.4.1",
