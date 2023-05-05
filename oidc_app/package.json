@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "http-proxy-agent": "5.0.0",
+    "http-proxy-agent": "6.0.0",
     "next": "13.4.0",
     "next-auth": "4.22.1",
     "react": "18.2.0",
