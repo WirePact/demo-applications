@@ -16,7 +16,7 @@
     "@types/node": "18.16.13",
     "@types/oidc-provider": "7.14.0",
     "ts-node": "10.9.1",
-    "tslib": "2.5.1",
+    "tslib": "2.5.2",
     "typescript": "5.0.4"
   },
   "dependencies": {
