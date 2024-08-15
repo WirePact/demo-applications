@@ -14,7 +14,7 @@
   "license": "Apache License 2.0",
   "devDependencies": {
     "@types/node": "20.14.15",
-    "@types/oidc-provider": "8.5.1",
+    "@types/oidc-provider": "8.5.2",
     "ts-node": "10.9.2",
     "tslib": "2.6.3",
     "typescript": "5.5.4"
