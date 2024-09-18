@@ -17,7 +17,7 @@
     "@types/oidc-provider": "8.5.2",
     "ts-node": "10.9.2",
     "tslib": "2.7.0",
-    "typescript": "5.5.4"
+    "typescript": "5.6.2"
   },
   "dependencies": {
     "oidc-provider": "8.5.1"
